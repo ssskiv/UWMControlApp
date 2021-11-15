@@ -12,6 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Set;
 
 public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceHolder> {
+    public DeviceAdapter(Set<BluetoothDevice> devices, CellClickListener cellClickListener) {
+        this.devices = devices;
+        this.cellClickListener = cellClickListener;
+    }
+
     Set<BluetoothDevice> devices;
     CellClickListener cellClickListener;
 

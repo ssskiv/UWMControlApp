@@ -3,4 +3,6 @@
     <string name="advanced_mode">Advanced mode</string>
     <string name="standard_mode">Standard mode</string>
     <string name="battery_charge_indicator">Battery charge indicator</string>
+    <string name="exit">Exit</string>
+    <string name="connect">Connect</string>
 </resources>

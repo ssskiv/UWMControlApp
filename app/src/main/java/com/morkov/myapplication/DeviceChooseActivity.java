@@ -1,6 +1,7 @@
 package com.morkov.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.bluetooth.BluetoothAdapter;
@@ -21,9 +22,12 @@ public class DeviceChooseActivity extends AppCompatActivity implements CellClick
         Log.d("DEBUG", "DeviceChooseActivity onCreate: entered");
 
         RecyclerView recyclerView = findViewById(R.id.rv_devices);
+
         BluetoothController bluetoothController = new BluetoothController();
+        DeviceAdapter deviceAdapter = new DeviceAdapter(bluetoothController.pairedDevices, this);
 
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(deviceAdapter);
     }
 
     @Override
