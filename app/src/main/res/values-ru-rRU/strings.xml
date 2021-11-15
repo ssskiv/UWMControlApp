@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Управление УХА</string>
+    <string name="advanced_mode">Продвинутый режим</string>
+    <string name="standard_mode">Стандартный режим</string>
+</resources>
