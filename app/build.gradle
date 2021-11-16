@@ -6,7 +6,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.morkov.myapplication"
+        applicationId "com.morkov.uwmcontrol"
         minSdk 24
         targetSdk 29
         versionCode 1

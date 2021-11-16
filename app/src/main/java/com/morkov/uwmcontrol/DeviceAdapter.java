@@ -1,4 +1,4 @@
-package com.morkov.myapplication;
+package com.morkov.uwmcontrol;
 
 import android.bluetooth.BluetoothDevice;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.morkov.myapplication;
+package com.morkov.uwmcontrol;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;

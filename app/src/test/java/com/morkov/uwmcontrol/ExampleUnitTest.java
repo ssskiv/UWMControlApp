@@ -1,4 +1,4 @@
-package com.morkov.myapplication;
+package com.morkov.uwmcontrol;
 
 import org.junit.Test;
 

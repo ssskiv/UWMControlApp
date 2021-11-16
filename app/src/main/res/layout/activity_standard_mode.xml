@@ -16,6 +16,22 @@
         android:rowCount="2">
 
         <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cv_pb_distance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_temp"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="20dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/onepunch"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/cv_temp"
             android:layout_width="60dp"
             android:layout_height="50dp"
@@ -35,16 +51,17 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_progressbar_charge"
             android:layout_width="0dp"
             android:layout_height="30dp"
-            android:layout_margin="10dp"
+            android:layout_margin="12.5dp"
             app:cardCornerRadius="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/cv_temp"
             app:layout_constraintTop_toTopOf="parent">
 
             <ProgressBar
-                android:id="@+id/progressbar_charge"
+                android:id="@+id/pb_charge"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -57,6 +74,35 @@
                 android:contentDescription="@string/battery_charge_indicator"
                 android:src="@drawable/ic_baseline_battery_charging_full_24" />
         </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_pb_distance"
+            android:layout_width="150dp"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="12.5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/cv_progressbar_charge">
+
+            <ProgressBar
+                android:id="@+id/pb_distance"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:progressDrawable="@drawable/progressbar_custom_vertical"
+                tools:progress="100" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/distance_to_obstacle"
+
+                android:src="@drawable/ic_baseline_wifi_24" />
+
+
+        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
@@ -66,7 +112,7 @@
         android:src="@drawable/ic_baseline_flashlight_on_24"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
-    <com.morkov.myapplication.ControlPadView
+    <com.morkov.uwmcontrol.ControlPadView
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_weight="1" />

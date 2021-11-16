@@ -1,7 +1,4 @@
-package com.morkov.myapplication;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+package com.morkov.uwmcontrol;
 
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -14,44 +11,55 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.protobuf.UninitializedMessageException;
-import com.google.type.Date;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
 import java.util.UUID;
 
+@SuppressWarnings("ALL")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button buttonAdv;
     private Button buttonStand;
 
-    private BluetoothDevice device;
-    private BluetoothSocket socket;
-    private OutputStream outStream;
+    private BluetoothController bluetoothController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        buttonAdv = findViewById(R.id.button_advanced);
+        Button buttonAdv = findViewById(R.id.button_advanced);
         buttonStand = findViewById(R.id.button_standard);
         Log.d("DEBUG", "MainActivity.onCreate: Entered");
         buttonAdv.setOnClickListener(this);
         buttonStand.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
+        try {
+
+
         if (view.getId() == buttonStand.getId()) {
             Log.d("DEBUG", "MainActivity.onClick: Entered");
             Intent intent = new Intent(this, StandardModeActivity.class);
+            intent.putExtra("device",bluetoothController.getDevice());
             startActivity(intent);
         } else {
             //Intent intent = new Intent(this, ***);
             //startActivity(intent);
+        }}catch (NullPointerException e){
+            e.printStackTrace();
+            Toast.makeText(
+                    this,
+                    "Connect to device",
+                    Toast.LENGTH_LONG
+            ).show();
+            return;
         }
     }
 
@@ -62,10 +70,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (data == null)
             return;
         else {
-device =data.getParcelableExtra("device");
-
+            BluetoothDevice device = data.getParcelableExtra("device");
             try {
-                socket=device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
+                bluetoothController = new BluetoothController(device);
+                try {
+                    bluetoothController.getSocket().close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                Log.e("DEBUG", "Error occurred when connecting to device", e);
+                Toast.makeText(
+                        this,
+                        "Error occurred when connecting to device",
+                        Toast.LENGTH_LONG
+                ).show();
+                return;
+            }
+            /*try {
+                socket = device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -86,31 +111,11 @@ device =data.getParcelableExtra("device");
             }
             Log.d("DEBUG", "Connected to " + device.getName() + " with type " + device.getType());
             Log.d("CONTROL", ("Connected to " + device.getName()));
-            try {
-                writeBTString("connected");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-    private void writeBT(byte[] bytes) throws IOException {
-        try {
-            outStream.write(bytes);
-        } catch (IOException e ) {
-            Log.e("DEBUG", "Error occurred when sending data", e);
-
-            // Send a failure message back to the activity.
-            Toast.makeText(this, "Error occurred when sending data", Toast.LENGTH_LONG).show();
-            return;
-        } catch (UninitializedMessageException e ) {
-            Toast.makeText(this, "Connect to device", Toast.LENGTH_SHORT).show();
+            writeBTString("connected");*/
         }
     }
 
-    private void writeBTString(String text ) throws IOException {
-        String txt  = text + '\n';
-        writeBT(txt.getBytes());
-    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);

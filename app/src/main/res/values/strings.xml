@@ -5,4 +5,5 @@
     <string name="battery_charge_indicator">Battery charge indicator</string>
     <string name="exit">Exit</string>
     <string name="connect">Connect</string>
+    <string name="distance_to_obstacle">Distance to obstacle</string>
 </resources>
