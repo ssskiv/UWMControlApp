@@ -22,13 +22,9 @@
             app:layout_constraintEnd_toStartOf="@id/cv_pb_distance"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cv_temp"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             app:cardCornerRadius="20dp">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/onepunch"/>
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView

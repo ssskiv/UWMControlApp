@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.UUID;
 
-@SuppressWarnings("ALL")
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonStand;
@@ -50,13 +50,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("device",bluetoothController.getDevice());
             startActivity(intent);
         } else {
-            //Intent intent = new Intent(this, ***);
-            //startActivity(intent);
+            Intent intent = new Intent(this, AdvancedModeActivity.class);
+            intent.putExtra("device",bluetoothController.getDevice());
+            startActivity(intent);
         }}catch (NullPointerException e){
             e.printStackTrace();
             Toast.makeText(
                     this,
-                    "Connect to device",
+                    getResources().getText(R.string.err_connect),
                     Toast.LENGTH_LONG
             ).show();
             return;
@@ -80,12 +81,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     return;
                 }
             } catch (IOException e) {
-                e.printStackTrace();
                 Log.e("DEBUG", "Error occurred when connecting to device", e);
                 Toast.makeText(
                         this,
-                        "Error occurred when connecting to device",
-                        Toast.LENGTH_LONG
+                        getResources().getText(R.string.err_when_connect),
+                        Toast.LENGTH_SHORT
                 ).show();
                 return;
             }

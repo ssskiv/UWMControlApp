@@ -45,4 +45,7 @@ public class BluetoothController {
     public BluetoothDevice getDevice() {
         return device;
     }
+    public interface isWriting{
+        void writeString(String text);
+    }
 }

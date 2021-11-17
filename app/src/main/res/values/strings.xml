@@ -6,4 +6,8 @@
     <string name="exit">Exit</string>
     <string name="connect">Connect</string>
     <string name="distance_to_obstacle">Distance to obstacle</string>
+    <string name="picture">Picture</string>
+    <string name="err_send_data">Error occurred when sending data to device</string>
+    <string name="err_connect">Connect to device</string>
+    <string name="err_when_connect">Error occurred when connecting to device</string>
 </resources>

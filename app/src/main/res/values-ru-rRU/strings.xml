@@ -3,4 +3,12 @@
     <string name="app_name">Управление УХА</string>
     <string name="advanced_mode">Продвинутый режим</string>
     <string name="standard_mode">Стандартный режим</string>
+    <string name="battery_charge_indicator">Индикатор заряда аккумулятора</string>
+    <string name="exit">Выход</string>
+    <string name="connect">Подключиться</string>
+    <string name="distance_to_obstacle">Расстояние до препятствия</string>
+    <string name="picture">Картинка</string>
+    <string name="err_send_data">Ошибка при отправке данных на устройство</string>
+    <string name="err_connect">Подключитесь к устройству</string>
+    <string name="err_when_connect">Ошибка при подключении к устройству</string>
 </resources>

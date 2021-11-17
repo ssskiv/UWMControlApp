@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.13055555555555556" />
         <entry key="app/src/main/res/drawable/progressbar_custom.xml" value="0.5268518518518519" />
         <entry key="app/src/main/res/drawable/progressbar_custom_vertical.xml" value="0.5166666666666667" />
+        <entry key="app/src/main/res/layout/activity_advanced_mode.xml" value="0.2462962962962963" />
         <entry key="app/src/main/res/layout/activity_device_choose.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.5515625" />
         <entry key="app/src/main/res/layout/activity_standard_mode.xml" value="0.3595238095238095" />
